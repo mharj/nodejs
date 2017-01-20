@@ -1,4 +1,4 @@
-Simple SHA512 crypt wrapper 
+Simple SHA512 crypt wrapper (BSD/Linux compatible)
 ```javascript
 var Password = require('./password.js');
 var user1 = new Password("$6$XTzaLxCR$RJLMngsKDqbF1oW2o49d4AsUUkVqDvvAdJolu83F/U.r7G.bWKlmnAuRJuQE.SRuUlv99/OCOtg27uFY3bBji1");
