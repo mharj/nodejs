@@ -12,6 +12,7 @@ console.log( user2.isValid("secret")?"yes":"no" );
 
 ## Http basic hook
 ```javascript
+var auth = require('http-auth');
 var basic = auth.basic({
         realm: "Some realm"
     }, (username, password, callback) => { 
