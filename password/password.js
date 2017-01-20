@@ -1,14 +1,5 @@
 var b64_sha512crypt = require("sha512crypt-node").b64_sha512crypt;
 
-function makeSalt(count){
-    var text = "";
-    var possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
-
-    for( var i=0; i < count; i++ )
-        text += possible.charAt(Math.floor(Math.random() * possible.length));
-
-    return text;
-}
 /**
  * Simple Password wrapper class
  * var Password = require('./password.js');
@@ -31,6 +22,13 @@ module.exports = function (hashString) {
 			salt = parts[2];
 			hash = parts[3];
 		}		
+	};
+	var makeSalt = function (count){
+		var text = "";
+		var possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+		for( var i=0; i < count; i++ )
+			text += possible.charAt(Math.floor(Math.random() * possible.length));
+		return text;
 	};
 	
 	if ( hashString ) {
