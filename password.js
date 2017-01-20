@@ -9,7 +9,14 @@ function makeSalt(count){
 
     return text;
 }
-
+/**
+ * Simple Password wrapper class
+ * var Password = require('./password.js');
+ * var password = new Password("$6$....");
+ * 
+ * @param {string} hashString password hash string
+ * @returns {Password} object
+ */
 module.exports = function (hashString) {
 	var salt = null;
 	var hash = null;
@@ -51,7 +58,7 @@ module.exports = function (hashString) {
 	
 	/**
 	 * compare password and hash
-	 * @param {type} password
+	 * @param {string} password
 	 * @returns {Boolean} is match
 	 */
 	this.isValid = function (password) {
@@ -63,10 +70,11 @@ module.exports = function (hashString) {
 	
 	/**
 	 * generate password hash and return current instance
-	 * new Password().create("password");
+	 * var Password = require('./password.js');
+	 * var password = new Password().create("password");
 	 * 
 	 * @param {string} password
-	 * @returns {self}
+	 * @returns {self} for chain
 	 */
 	this.create = function (password) {
 		makeSplit( b64_sha512crypt( password , makeSalt(8) ));
