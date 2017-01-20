@@ -27,7 +27,7 @@ module.exports = function (hashString) {
 	 */
 	var makeSplit = function(hashString) {
 		var parts = hashString.split("$");
-		if ( parts[1] === "6" && parts[2].length === 8 ) {
+		if ( parts[1] === "6" && parts[2].length >= 8 && parts[2].length <= 16 ) {
 			salt = parts[2];
 			hash = parts[3];
 		}		
