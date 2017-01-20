@@ -14,9 +14,9 @@ console.log( user2.isValid("secret")?"yes":"no" );
 ```javascript
 var auth = require('http-auth');
 var basic = auth.basic({
-        realm: "Some realm"
-    }, (username, password, callback) => { 
-			callback( user1.isValid(password) ); 
-    }
+		realm: "Some realm"
+	}, (username, password, callback) => { 
+		callback( user1.isValid(password) ); 
+	}
 );
 ```
