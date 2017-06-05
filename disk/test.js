@@ -20,6 +20,8 @@ function readMBR(buf) {
 	out.partitionSize = buf.readUInt16LE(12);
 	return out;
 }
+let diskID = mbr[0x1bb].toString(16) + mbr[0x1ba].toString(16) + mbr[0x1b9].toString(16) + mbr[0x1b8].toString(16); // DiskID: 1B8 (hex) through 1BE (hex) (looks like reverse)
+console.log(diskID);
 for (var i = 446;i <= 508;i += 16) { // MBR table block
 	let partitionTable = mbr.slice(i,i+15);
 	let data = readMBR(partitionTable);
